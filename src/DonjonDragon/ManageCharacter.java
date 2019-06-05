@@ -1,5 +1,6 @@
 package DonjonDragon;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManageCharacter {
@@ -58,30 +59,21 @@ public class ManageCharacter {
         return C;
     }
 
-    public void createCharacter(Character[] tabCharacter) {
+    public void createCharacter(ArrayList<Character> listCharacter) {
         int createNew = 0;
-        int i = 0;
-        while (i < tabCharacter.length && createNew != 2) {
-            if (tabCharacter[i] == null){
-                tabCharacter[i] = initCharacter();
-                Scanner sc = new Scanner(System.in);
-                System.out.println("Voulez-vous créer un autre personnage ? (1 oui 2 non)");
-                createNew = sc.nextInt();
-                sc.nextLine();
-            }
-            i++;
+        while (createNew != 2) {
+            listCharacter.add(initCharacter());
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Voulez-vous créer un autre personnage ? (1 oui 2 non)");
+            createNew = sc.nextInt();
+            sc.nextLine();
         }
     }
 
-    public boolean isNotNull(Character[] tabCharacter) {
+    public boolean isNotNull(ArrayList<Character> listCharacter) {
         boolean empty = true;
-        if (tabCharacter != null) {
-            for (Character character : tabCharacter) {
-                if (character != null) {
-                    empty = false;
-                    break;
-                }
-            }
+        if (listCharacter.size() != 0) {
+            empty = false;
         }
         return empty;
     }

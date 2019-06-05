@@ -1,8 +1,11 @@
 package DonjonDragon;
 
+import java.util.ArrayList;
+
 public class Game {
     // Attributs
     private Character[] tabCharacter = new Character[5];
+    private ArrayList<Character> listCharacter = new ArrayList<Character>();
 
     // Constructors
 
@@ -34,10 +37,10 @@ public class Game {
                     switch (charChoice) {
                         case 1:
                             charLoop = false;
-                            mc.createCharacter(tabCharacter);
+                            mc.createCharacter(listCharacter);
                             break;
                         case 2:
-                            boolean empty = mc.isNotNull(tabCharacter);
+                            boolean empty = mc.isNotNull(listCharacter);
                             if (empty) {
                                 charLoop = false;
                                 System.out.println("Commencez par créer un personnage");
@@ -49,7 +52,7 @@ public class Game {
                                 break;
                             }
                         case 3:
-                            empty = mc.isNotNull(tabCharacter);
+                            empty = mc.isNotNull(listCharacter);
                             if (empty) {
                                 charLoop = false;
                                 System.out.println("Commencez par créer un personnage");
