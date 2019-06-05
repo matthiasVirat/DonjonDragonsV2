@@ -2,7 +2,7 @@ package DonjonDragon;
 
 public class Game {
     // Attributs
-    private Character[] tabCharacter;
+    private Character[] tabCharacter = new Character[5];
 
     // Constructors
 
@@ -11,48 +11,61 @@ public class Game {
 
     public void initGame(){
         Menu menu = new Menu();
+        boolean mainLoop = true;
         int mainChoice = menu.displayMainMenu();
-
-        int charChoice = 0;
-        switch (mainChoice){
-            case 1:
-                charChoice = menu.displayCharacterMenu();
-                break;
-            case 9:
-                break;
-            default:
-                System.out.println("mauvais choix de menu");
-        }
-        ManageCharacter mc = new ManageCharacter();
-        if (charChoice != 0){
-            switch (charChoice) {
+        while (mainLoop){
+            boolean charLoop = true;
+            int charChoice = 0;
+            switch (mainChoice){
                 case 1:
-                    tabCharacter = mc.createCharacter();
+                    charChoice = menu.displayCharacterMenu();
                     break;
-                case 2:
-                    boolean empty = mc.isNotNull(tabCharacter);
-                    if (empty) {
-                        System.out.println("Commencez par créer un personnage");
-                        menu.displayCharacterMenu();
-                        break;
-                    } else {
-                        mc.updateCharacter(tabCharacter);
-                        break;
-                    }
-                case 3:
-                    empty = mc.isNotNull(tabCharacter);
-                    if (empty) {
-                        System.out.println("Commencez par créer un personnage");
-                        menu.displayCharacterMenu();
-                        break;
-                    } else {
-                        mc.deleteCharacter(tabCharacter);
-                        break;
-                    }
                 case 9:
-                    menu.displayMainMenu();
+                    mainLoop = false;
+                    charLoop = false;
+                    break;
+                default:
+                    System.out.println("mauvais choix de menu");
+            }
+            ManageCharacter mc = new ManageCharacter();
+
+            while (charLoop){
+                if (charChoice != 0){
+                    switch (charChoice) {
+                        case 1:
+                            charLoop = false;
+                            tabCharacter = mc.createCharacter(tabCharacter);
+                            break;
+                        case 2:
+                            boolean empty = mc.isNotNull(tabCharacter);
+                            if (empty) {
+                                charLoop = false;
+                                System.out.println("Commencez par créer un personnage");
+                                menu.displayMainMenu();
+                                break;
+                            } else {
+                                charLoop = false;
+                                mc.updateCharacter(tabCharacter);
+                                break;
+                            }
+                        case 3:
+                            empty = mc.isNotNull(tabCharacter);
+                            if (empty) {
+                                charLoop = false;
+                                System.out.println("Commencez par créer un personnage");
+                                menu.displayMainMenu();
+                                break;
+                            } else {
+                                charLoop = false;
+                                mc.deleteCharacter(tabCharacter);
+                                break;
+                            }
+                        case 9:
+                            charLoop = false;
+                            menu.displayMainMenu();
+                    }
+                }
             }
         }
-
     }
 }

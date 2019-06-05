@@ -58,20 +58,20 @@ public class ManageCharacter {
         return C;
     }
 
-    public Character[] createCharacter() {
-        Character[] tabCharacter = new Character[5];
-        boolean loop = true;
-        while (loop) {
-            for (int i = 0; i < tabCharacter.length; i++) {
+    public Character[] createCharacter(Character[] tabCharacter) {
+        int createNew;
+        for (int i = 0; i < tabCharacter.length; i++) {
+            if (tabCharacter[i] != null) {
+                continue;
+            } else {
                 tabCharacter[i] = initCharacter();
                 Scanner sc = new Scanner(System.in);
                 System.out.println("Voulez-vous créer un autre personnage ? (1 oui 2 non)");
-                int createNew = sc.nextInt();
+                createNew = sc.nextInt();
                 sc.nextLine();
-                if (createNew == 2) {
-                    loop = false;
-                    break;
-                }
+            }
+            if (createNew == 2) {
+                break;
             }
         }
         return tabCharacter;
