@@ -133,4 +133,9 @@ public class Character {
                 System.out.println("mauvais choix de caractéristique");
         }
     }
+
+    public String toString()
+    {
+        return "Nom : "+ this.getName();
+    }
 }

@@ -96,7 +96,7 @@ public class ManageCharacter {
         for (Character character : tabCharacter) {
             if (character != null) {
                 i++;
-                System.out.println(i+ " : " + character.getName());
+                System.out.println(i+ " : " + character);
             }
         }
     }
