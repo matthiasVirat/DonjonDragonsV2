@@ -89,53 +89,14 @@ public class Character {
     }
 
     // Methods
-    public void updateInfo() {
-        System.out.println("1 nom :" + this.getName());
-        System.out.println("2 : image" + this.getImage());
-        System.out.println("3 : niveau de vie " + this.getLifeLevel());
-        System.out.println("4 : puissance attaque" + this.getAttackPower());
-        System.out.println("5 : défense" + this.getDefense());
-        System.out.println("Quelle caractéristique voulez-vous modifier (entrer son numéro) ?");
-        Scanner sc = new Scanner(System.in);
-        int attSelected = sc.nextInt();
-        sc.nextLine();
-        switch (attSelected) {
-            case 1:
-                System.out.println("Entrer le nouveau nom du personnage : ");
-                String sName = sc.nextLine();
-                this.setName(sName);
-                break;
-            case 2:
-                System.out.println("Entrer la nouvelle url de l'image : ");
-                String sImage = sc.nextLine();
-                this.setImage(sImage);
-                break;
-            case 3:
-                System.out.println("Entrer le nouveau niveau de vie : ");
-                int sLifeLevel = sc.nextInt();
-                sc.nextLine();
-                this.setLifeLevel(sLifeLevel);
-                break;
-            case 4:
-                System.out.println("Entrer la nouvelle puissance d'attaque : ");
-                int sAttackPower = sc.nextInt();
-                sc.nextLine();
-                this.setAttackPower(sAttackPower);
-                break;
-            case 5:
-                System.out.println("Entrer votre nouveau moyen de défense (philtre(M) bouclier(G) : ");
-                String sDefense = sc.nextLine();
-                this.setDefense(sDefense);
-                break;
-            case 9:
-                break;
-            default:
-                System.out.println("mauvais choix de caractéristique");
-        }
-    }
 
     public String toString()
     {
-        return "Nom : "+ this.getName();
+        return "1 Nom : "+ this.getName()+
+                "\n 2 Image : " + this.getImage()+
+                "\n 3 Vie : " + this.getLifeLevel()+
+                "\n 4 Puissance : " +this.getAttackPower()+
+                "\n 5 Attaque : " +this.getAttackMode()+
+                "\n 6 Défense : " +this.getDefense();
     }
 }

@@ -34,7 +34,7 @@ public class Game {
                     switch (charChoice) {
                         case 1:
                             charLoop = false;
-                            tabCharacter = mc.createCharacter(tabCharacter);
+                            mc.createCharacter(tabCharacter);
                             break;
                         case 2:
                             boolean empty = mc.isNotNull(tabCharacter);
