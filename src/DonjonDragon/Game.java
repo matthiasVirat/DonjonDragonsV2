@@ -48,7 +48,7 @@ public class Game {
                                 break;
                             } else {
                                 charLoop = false;
-                                mc.updateCharacter(tabCharacter);
+                                mc.updateCharacter(listCharacter);
                                 break;
                             }
                         case 3:
@@ -60,7 +60,7 @@ public class Game {
                                 break;
                             } else {
                                 charLoop = false;
-                                mc.deleteCharacter(tabCharacter);
+                                mc.deleteCharacter(listCharacter);
                                 break;
                             }
                         case 9:
