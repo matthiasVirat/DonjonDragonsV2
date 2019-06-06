@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Game {
     // Attributs
-    private Character[] tabCharacter = new Character[5];
     private ArrayList<Character> listCharacter = new ArrayList<Character>();
+    private ArrayList<Box> map = new ArrayList<Box>();
 
     // Constructors
 
@@ -19,16 +19,23 @@ public class Game {
         while (mainLoop){
             boolean charLoop = true;
             int charChoice = 0;
+            int mapChoice = 0;
             switch (mainChoice){
                 case 1:
                     charChoice = menu.displayCharacterMenu();
+                    break;
+                case 2:
+                    Box box = new Box();
+                    box.initMap(map);
+                    box.initMapSucces();
+                    mainChoice = menu.displayMainMenu();
                     break;
                 case 9:
                     mainLoop = false;
                     charLoop = false;
                     break;
                 default:
-                    System.out.println("mauvais choix de menu");
+                    menu.badMenuChoice();
             }
             ManageCharacter mc = new ManageCharacter();
 
@@ -43,7 +50,7 @@ public class Game {
                             boolean empty = mc.isNotNull(listCharacter);
                             if (empty) {
                                 charLoop = false;
-                                System.out.println("Commencez par créer un personnage");
+                                mc.charNotCreated();
                                 menu.displayMainMenu();
                                 break;
                             } else {
@@ -55,7 +62,7 @@ public class Game {
                             empty = mc.isNotNull(listCharacter);
                             if (empty) {
                                 charLoop = false;
-                                System.out.println("Commencez par créer un personnage");
+                                mc.charNotCreated();
                                 menu.displayMainMenu();
                                 break;
                             } else {
@@ -65,8 +72,10 @@ public class Game {
                             }
                         case 9:
                             charLoop = false;
-                            menu.displayMainMenu();
+                            mainChoice = menu.displayMainMenu();
                     }
+                } else {
+                    charLoop = false;
                 }
             }
         }

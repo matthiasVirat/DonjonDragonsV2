@@ -152,4 +152,8 @@ public class ManageCharacter {
             listCharacter.remove(charSelected-1);
         }
     }
+
+    public void charNotCreated(){
+        System.out.println("Commencez par créer un personnage");
+    }
 }

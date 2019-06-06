@@ -12,6 +12,7 @@ public class Menu {
     // Méthodes
     public int displayMainMenu(){
         System.out.println("1 - Gestion des personnages");
+        System.out.println("2 - Créer la map");
         System.out.println("9 - Quitter");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
@@ -31,5 +32,9 @@ public class Menu {
         sc.nextLine();
 
         return choice;
+    }
+
+    public void badMenuChoice(){
+        System.out.println("mauvais choix de menu");
     }
 }
