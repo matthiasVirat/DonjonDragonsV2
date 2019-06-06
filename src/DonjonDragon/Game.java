@@ -25,9 +25,9 @@ public class Game {
                     charChoice = menu.displayCharacterMenu();
                     break;
                 case 2:
-                    Box box = new Box();
-                    box.initMap(map);
-                    box.initMapSucces();
+                    Map mp = new Map();
+                    mp.initMap(map);
+                    mp.initMapSucces();
                     mainChoice = menu.displayMainMenu();
                     break;
                 case 9:
